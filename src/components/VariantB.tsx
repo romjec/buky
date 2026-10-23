@@ -139,20 +139,15 @@ export function Founder() {
         </div>
         <div className="mt-6 space-y-4 text-lg text-ink/80">
           <p>
-            Ich liebe es, mit meiner Tochter Bücher anzuschauen. Wirklich. Auch beim 40. Mal. Okay – spätestens beim
-            40. Mal fange ich an, die Geschichte heimlich umzuschreiben: Der Bär hat plötzlich einen Bruder, die Raupe
-            macht Diät, und das Lied gibt es inzwischen in drei Versionen. 🎵
+            Abends auf dem Sofa, meine Tochter neben mir, ein Buch auf den Knien – das ist einer meiner liebsten
+            Momente des Tages. Ich liebe es, mit ihr Bücher anzuschauen. Auch wenn wir das gleiche Buch gerade zum 40.
+            Mal aufschlagen und ich jede Seite auswendig kenne. 😄
           </p>
           <p>
-            Neue Bücher wären die Lösung. Aber ständig kaufen geht ins Geld. Und die Bibliothek? Da leihst du ein
-            schönes Buch aus – und bringst es angeknabbert, abgeschlabbert und mit einer leicht klebrigen Ecke zurück.
-            Viel Spass beim Erklären am Schalter. 😅
+            Und trotzdem frage ich mich manchmal: Was wäre, wenn wir immer wieder neue Bücher hätten? Neue Bilder zum
+            Entdecken, neue Wörter, neue Geschichten – statt zum x-ten Mal dieselbe zu erzählen.
           </p>
-          <p>
-            Darum baue ich Buky: jeden Monat neue Bücher für die Kleinsten – und Gebrauchsspuren gehören einfach dazu.
-            Damit Kinder mit Büchern umgehen dürfen, als wären es ihre eigenen. Und wir Eltern endlich wieder neue
-            Geschichten vorlesen, statt die alten umzudichten.
-          </p>
+          <p>Genau so eine Lösung hätten wir uns gewünscht. Darum habe ich Buky gestartet.</p>
         </div>
         <p className="mt-6 font-serif text-xl italic">– Roman, Papa und Gründer von Buky</p>
       </div>
