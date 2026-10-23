@@ -78,7 +78,7 @@ export function SignupForm({
             onChange={(e) => setEmail(e.target.value)}
             aria-invalid={status === "error"}
             aria-describedby={error ? `${id}-error` : undefined}
-            className="min-w-0 flex-1 rounded-full bg-transparent px-5 py-3 text-base outline-none placeholder:text-muted/70"
+            className="min-w-0 flex-1 rounded-full bg-transparent px-5 py-3 text-base text-ink outline-none placeholder:text-muted/70"
           />
           {/* Honeypot gegen Spam-Bots */}
           <input type="text" name="company" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
