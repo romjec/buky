@@ -271,7 +271,7 @@ export function FinalCta() {
   );
 }
 
-export function Footer() {
+export function Footer({ showAges = true }: { showAges?: boolean }) {
   return (
     <footer className="px-4 pb-4 sm:px-8">
       <div className="mx-auto max-w-7xl rounded-t-[2.5rem] bg-lavender px-6 pt-14 pb-8 sm:px-14">
@@ -286,7 +286,7 @@ export function Footer() {
             <h3 className="font-semibold">Buky</h3>
             <ul className="mt-4 space-y-3 text-ink/75">
               <li><a href="#so-gehts" className="hover:text-violet">So geht&apos;s</a></li>
-              <li><a href="#altersgruppen" className="hover:text-violet">Altersgruppen</a></li>
+              {showAges && <li><a href="#altersgruppen" className="hover:text-violet">Altersgruppen</a></li>}
               <li><a href="#gutschein" className="hover:text-violet">Gutscheine</a></li>
               <li><a href="#faq" className="hover:text-violet">FAQ</a></li>
             </ul>

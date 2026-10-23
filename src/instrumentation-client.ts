@@ -1,5 +1,6 @@
 import posthog from "posthog-js";
 import { captureAttribution } from "@/lib/attribution";
+import { currentVariant } from "@/lib/variant";
 
 captureAttribution();
 
@@ -14,4 +15,6 @@ if (key) {
     capture_pageview: true,
     capture_pageleave: true,
   });
+  // Jedes Event bekommt die A/B-Variante mit → in PostHog nach "variant" aufschlüsseln
+  posthog.register({ variant: currentVariant() });
 }

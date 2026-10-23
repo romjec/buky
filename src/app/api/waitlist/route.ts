@@ -1,6 +1,7 @@
 import { getSupabase } from "@/lib/supabase";
 import { sendConfirmationMail } from "@/lib/mail";
 import { isInterest, isValidEmail, shortText } from "@/lib/validation";
+import { isVariant } from "@/lib/variant";
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null);
@@ -32,6 +33,7 @@ export async function POST(request: Request) {
         utm_medium: shortText(body.utm_medium),
         utm_campaign: shortText(body.utm_campaign),
         referrer: shortText(body.referrer, 255),
+        variant: isVariant(body.variant) ? body.variant : null,
       },
       { onConflict: "email,interest" },
     )

@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { track } from "@/lib/analytics";
 
-const ITEMS = [
+export type FaqItem = { q: string; a: string };
+
+const DEFAULT_ITEMS: FaqItem[] = [
   {
     q: "Für welches Alter ist Buky gedacht?",
     a: "Für Kinder von 0 bis 4 Jahren – von Fühl- und Pappbüchern für die Kleinsten bis zu ersten Vorlesegeschichten. Du gibst das Alter an, wir wählen passende Bücher aus.",
@@ -30,12 +32,12 @@ const ITEMS = [
   },
 ];
 
-export function Faq() {
+export function Faq({ items = DEFAULT_ITEMS }: { items?: FaqItem[] }) {
   const [open, setOpen] = useState(0);
 
   return (
     <div>
-      {ITEMS.map((item, i) => {
+      {items.map((item, i) => {
         const isOpen = open === i;
         return (
           <div key={item.q} className="border-b border-lavender">

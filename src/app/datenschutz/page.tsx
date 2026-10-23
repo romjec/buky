@@ -58,6 +58,14 @@ export default function DatenschutzPage() {
           werden auf Servern in der EU verarbeitet.
         </p>
 
+        <H2>Cookie für den Seitentest</H2>
+        <p>
+          Ich teste zwei Varianten der Startseite. Damit du bei jedem Besuch dieselbe Variante siehst, setzt die
+          Website ein Cookie namens «buky-variant». Es enthält nur den Buchstaben A oder B, wird nicht mit anderen
+          Daten verknüpft und läuft nach 30 Tagen ab. Bei einer Anmeldung wird die Variante mitgespeichert. Du kannst
+          das Cookie in deinem Browser jederzeit löschen oder blockieren.
+        </p>
+
         <H2>Dienstleister</H2>
         <p>Für den Betrieb der Website nutze ich folgende Dienstleister, die Daten in meinem Auftrag bearbeiten:</p>
         <ul className="list-disc space-y-2 pl-5">

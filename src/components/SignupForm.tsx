@@ -3,6 +3,7 @@
 import { useId, useState } from "react";
 import { track } from "@/lib/analytics";
 import { getAttribution } from "@/lib/attribution";
+import { currentVariant } from "@/lib/variant";
 import type { Interest } from "@/lib/validation";
 import { CheckMail } from "./CheckMail";
 import { Modal } from "./Modal";
@@ -41,7 +42,7 @@ export function SignupForm({
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, interest, source, company: form.get("company"), ...getAttribution() }),
+        body: JSON.stringify({ email, interest, source, company: form.get("company"), ...getAttribution(), variant: currentVariant() }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Fehler");

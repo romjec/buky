@@ -6,7 +6,7 @@ import { Modal } from "./Modal";
 import { SignupForm } from "./SignupForm";
 
 /** Fake-Door-Test: Gutscheine gibt es noch nicht – wir messen nur das Interesse. */
-export function VoucherCta() {
+export function VoucherCta({ appearance = "button" }: { appearance?: "button" | "link" }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -17,10 +17,14 @@ export function VoucherCta() {
           track("voucher_cta_clicked");
           setOpen(true);
         }}
-        className="inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 font-semibold text-white transition hover:bg-violet"
+        className={
+          appearance === "link"
+            ? "font-semibold text-violet underline underline-offset-4 hover:text-violet-dark"
+            : "inline-flex items-center gap-3 rounded-full bg-ink px-7 py-4 font-semibold text-white transition hover:bg-violet"
+        }
       >
-        Gutschein verschenken
-        <span aria-hidden>🎁</span>
+        {appearance === "link" ? "Buky-Gutschein verschenken →" : "Gutschein verschenken"}
+        {appearance === "button" && <span aria-hidden>🎁</span>}
       </button>
 
       <Modal open={open} onClose={() => setOpen(false)} labelledBy="voucher-title">
