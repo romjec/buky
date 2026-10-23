@@ -7,13 +7,16 @@ export default function ImpressumPage() {
   return (
     <SimplePage>
       <h1 className="font-serif text-4xl font-semibold">Impressum</h1>
-      {/* TODO: echte Angaben eintragen */}
       <div className="mt-6 space-y-2 text-muted">
-        <p>Buky</p>
-        <p>[Vorname Nachname]</p>
-        <p>[Strasse Nr.]</p>
-        <p>[PLZ Ort], Schweiz</p>
-        <p>E-Mail: hallo@buky.ch</p>
+        <p className="font-semibold text-ink">Buky – ein Projekt von Roman Jeckelmann</p>
+        <p>Familienvater</p>
+        <p>
+          E-Mail:{" "}
+          <a href="mailto:roman.jeckelmann@gmail.com" className="text-violet underline underline-offset-4">
+            roman.jeckelmann@gmail.com
+          </a>
+        </p>
+        <p>Postadresse und Telefonnummer auf Anfrage per E-Mail.</p>
       </div>
     </SimplePage>
   );

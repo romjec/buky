@@ -28,7 +28,10 @@ export default function DatenschutzPage() {
           Besuchsstatistiken nutzen wir PostHog (EU-Server) ohne Cookies.
         </p>
         <h2 className="pt-2 text-lg font-semibold text-ink">Löschung</h2>
-        <p>Eine kurze E-Mail an hallo@buky.ch genügt und wir löschen deine Daten.</p>
+        <p>
+          Verantwortlich ist Roman Jeckelmann. Eine kurze E-Mail an roman.jeckelmann@gmail.com genügt und wir löschen
+          deine Daten.
+        </p>
       </div>
     </SimplePage>
   );
