@@ -2,20 +2,13 @@
 
 import { useId, useState } from "react";
 import { track } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
 import type { Interest } from "@/lib/validation";
+import { CheckMail } from "./CheckMail";
 import { Modal } from "./Modal";
 import { Survey } from "./Survey";
 
-type Status = "idle" | "loading" | "survey" | "done" | "error";
-
-function utmParams() {
-  const params = new URLSearchParams(window.location.search);
-  return {
-    utm_source: params.get("utm_source"),
-    utm_medium: params.get("utm_medium"),
-    utm_campaign: params.get("utm_campaign"),
-  };
-}
+type Status = "idle" | "loading" | "survey" | "check-mail" | "done" | "error";
 
 export function SignupForm({
   source,
@@ -48,7 +41,7 @@ export function SignupForm({
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, interest, source, company: form.get("company"), ...utmParams() }),
+        body: JSON.stringify({ email, interest, source, company: form.get("company"), ...getAttribution() }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Fehler");
@@ -64,16 +57,7 @@ export function SignupForm({
   }
 
   if (status === "done") {
-    return (
-      <div role="status" className={`rounded-[1.75rem] bg-lavender-soft p-5 ${className}`}>
-        <p className="font-serif text-xl font-semibold">
-          Danke! <span className="text-violet italic">Fast geschafft.</span>
-        </p>
-        <p className="mt-1 text-sm text-muted">
-          Wir haben dir eine E-Mail geschickt. Bitte bestätige deine Adresse – dann halten wir dich auf dem Laufenden.
-        </p>
-      </div>
-    );
+    return <CheckMail email={email} className={`text-left ${className}`} />;
   }
 
   return (
@@ -120,13 +104,26 @@ export function SignupForm({
       </form>
 
       {withSurvey && (
-        <Modal open={status === "survey"} onClose={() => setStatus("done")} labelledBy={`${id}-survey-title`}>
-          <p className="text-sm font-semibold tracking-widest text-violet uppercase">Du bist dabei 🎉</p>
+        <Modal open={status === "survey"} onClose={() => setStatus("check-mail")} labelledBy={`${id}-survey-title`}>
+          <p className="text-sm font-semibold tracking-widest text-violet uppercase">Fast geschafft 🎉</p>
           <h2 id={`${id}-survey-title`} className="mt-2 mb-2 font-serif text-3xl font-semibold">
             Hilf uns, Buky <span className="text-violet italic">für dich</span> zu bauen
           </h2>
-          <p className="mb-6 text-sm text-muted">Drei kurze Fragen – freiwillig, dauert 20 Sekunden.</p>
-          <Survey token={surveyToken} onDone={() => setStatus("done")} />
+          <p className="mb-6 text-sm text-muted">
+            Drei kurze Fragen – freiwillig, dauert 20 Sekunden. Danach musst du nur noch deine E-Mail bestätigen.
+          </p>
+          <Survey token={surveyToken} onDone={() => setStatus("check-mail")} />
+        </Modal>
+      )}
+
+      {withSurvey && (
+        <Modal
+          open={status === "check-mail"}
+          onClose={() => setStatus("done")}
+          labelledBy={`${id}-mail-title`}
+          bare
+        >
+          <CheckMail email={email} titleId={`${id}-mail-title`} onClose={() => setStatus("done")} />
         </Modal>
       )}
     </>

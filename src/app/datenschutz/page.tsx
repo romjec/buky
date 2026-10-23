@@ -32,7 +32,9 @@ export default function DatenschutzPage() {
         <p>
           Wenn du dich für Buky oder für Buky-Gutscheine einträgst, speichere ich deine E-Mail-Adresse, wofür du dich
           interessierst (Abo oder Gutschein), den Zeitpunkt der Anmeldung und – falls du über einen Kampagnenlink kommst
-          – die Kampagnenparameter (z. B. «instagram»). Freiwillig kannst du drei kurze Fragen beantworten (Alter des
+          – die Kampagnenparameter (z. B. «instagram») sowie die Website, von der du gekommen bist (z. B.
+          «google.com»). Diese Herkunftsangaben werden nur für die Dauer deines Besuchs im Browser-Tab
+          zwischengespeichert (sessionStorage) und beim Schliessen des Tabs automatisch gelöscht. Freiwillig kannst du drei kurze Fragen beantworten (Alter des
           Kindes, gewünschte Anzahl Bücher, Preisvorstellung). Namen oder Angaben zur Identität deines Kindes werden
           nicht erfasst.
         </p>

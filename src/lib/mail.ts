@@ -9,7 +9,7 @@ export async function sendConfirmationMail(to: string, confirmUrl: string, inter
 
   const topic = interest === "gutschein" ? "Buky-Gutscheine" : "Buky";
   const resend = new Resend(apiKey);
-  await resend.emails.send({
+  const { error } = await resend.emails.send({
     from: process.env.RESEND_FROM ?? "Buky <onboarding@resend.dev>",
     to,
     subject: "Bitte bestätige deine E-Mail-Adresse",
@@ -23,4 +23,6 @@ export async function sendConfirmationMail(to: string, confirmUrl: string, inter
         <p style="font-size:13px;color:#7a7390">Falls du dich nicht angemeldet hast, kannst du diese E-Mail ignorieren.</p>
       </div>`,
   });
+  // Resend wirft keine Exception, sondern liefert den Fehler zurück (z. B. Domain nicht verifiziert).
+  if (error) throw new Error(`Resend: ${error.name} – ${error.message}`);
 }

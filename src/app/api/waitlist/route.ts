@@ -31,6 +31,7 @@ export async function POST(request: Request) {
         utm_source: shortText(body.utm_source),
         utm_medium: shortText(body.utm_medium),
         utm_campaign: shortText(body.utm_campaign),
+        referrer: shortText(body.referrer, 255),
       },
       { onConflict: "email,interest" },
     )
