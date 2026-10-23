@@ -139,17 +139,22 @@ export function Founder() {
         </div>
         <div className="mt-6 space-y-4 text-lg text-ink/80">
           <p>
-            Ich bin Familienvater – und kenne das: Die gleichen Bücher werden wieder und wieder angeschaut. Neue Bücher
-            gehen schnell ins Geld und stehen nach ein paar Wochen im Regal. Dabei lernen Kinder mit jedem neuen Buch
-            etwas dazu.
+            Ich liebe es, mit meiner Tochter Bücher anzuschauen. Wirklich. Auch beim 40. Mal. Okay – spätestens beim
+            40. Mal fange ich an, die Geschichte heimlich umzuschreiben: Der Bär hat plötzlich einen Bruder, die Raupe
+            macht Diät, und das Lied gibt es inzwischen in drei Versionen. 🎵
           </p>
           <p>
-            Darum baue ich Buky. Kinder sollen mit Büchern umgehen dürfen, als wären es ihre eigenen – und trotzdem
-            jeden Monat Neues entdecken. Es geht mir nicht ums grosse Geld, sondern darum, dass mehr Kinder mehr
-            Bücher erleben.
+            Neue Bücher wären die Lösung. Aber ständig kaufen geht ins Geld. Und die Bibliothek? Da leihst du ein
+            schönes Buch aus – und bringst es angeknabbert, abgeschlabbert und mit einer leicht klebrigen Ecke zurück.
+            Viel Spass beim Erklären am Schalter. 😅
+          </p>
+          <p>
+            Darum baue ich Buky: jeden Monat neue Bücher für die Kleinsten – und Gebrauchsspuren gehören einfach dazu.
+            Damit Kinder mit Büchern umgehen dürfen, als wären es ihre eigenen. Und wir Eltern endlich wieder neue
+            Geschichten vorlesen, statt die alten umzudichten.
           </p>
         </div>
-        <p className="mt-6 font-serif text-xl italic">– Roman, Gründer von Buky</p>
+        <p className="mt-6 font-serif text-xl italic">– Roman, Papa und Gründer von Buky</p>
       </div>
     </section>
   );
