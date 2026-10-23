@@ -48,17 +48,23 @@ export function CheckMail({
       <div className="flex items-start gap-4">
         <Envelope className="h-14 w-14 shrink-0 animate-bounce [animation-iteration-count:3]" />
         <div className="min-w-0">
-          <p className="text-xs font-semibold tracking-[0.2em] text-sun uppercase">Letzter Schritt</p>
+          <p className="text-xs font-semibold tracking-[0.2em] text-sun uppercase">Letzter Schritt. Versprochen.</p>
           <h2 id={titleId} className="mt-1 font-serif text-2xl leading-tight font-semibold sm:text-3xl">
-            Bitte bestätige jetzt <em className="whitespace-nowrap text-sun">deine E-Mail</em>
+            Ab ins <em className="whitespace-nowrap text-sun">Postfach!</em> 📬
           </h2>
         </div>
       </div>
       <p className="mt-4 text-white/90">
-        Wir haben dir einen Bestätigungslink an <strong className="text-white [overflow-wrap:anywhere]">{email}</strong> geschickt.{" "}
-        <strong className="text-white">Erst nach dem Klick auf den Link bist du auf der Liste.</strong>
+        Wir haben dir eine Mail an <strong className="text-white [overflow-wrap:anywhere]">{email}</strong> geschickt.{" "}
+        <strong className="text-white">Ein Klick auf den Link – und du bist offiziell dabei.</strong> Ohne Klick bleibst
+        du für immer im Wartezimmer. Und da liegen nur alte Zeitschriften. 🥲
       </p>
-      <p className="mt-2 text-sm text-white/75">Keine E-Mail da? Schau bitte auch im Spam- oder Werbung-Ordner nach.</p>
+      <p className="mt-3 text-sm text-white/75">
+        Nichts da? Schau im Spam-Ordner. Unsere Mail ist manchmal schüchtern. 🙈
+      </p>
+      <p className="mt-1 text-sm text-white/75">
+        P.S. Bücher anknabbern ist bei Buky erlaubt. Die Mail bitte einfach öffnen.
+      </p>
       {(webmail || onClose) && (
         <div className="mt-6 flex flex-wrap items-center gap-3">
           {webmail && (
@@ -77,7 +83,7 @@ export function CheckMail({
               onClick={onClose}
               className="rounded-full border border-white/50 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
             >
-              Verstanden
+              Okay, ich schau nach 🫡
             </button>
           )}
         </div>
