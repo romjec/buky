@@ -42,6 +42,21 @@ Ohne Supabase-, Resend- oder PostHog-Keys läuft alles im „Dev-Modus“: Anmel
 In Supabase steht pro Anmeldung zusätzlich `confirmed_at` (Double-Opt-in), die Umfrage-Antworten und die UTM-Parameter.
 Kampagnen am besten mit `?utm_source=instagram&utm_campaign=...` verlinken.
 
+## A/B-Test der Startseite
+
+- **A** = `src/app/page.tsx` (ursprüngliche Seite), **B** = `src/app/b/page.tsx` (kompakt, Vorher/Nachher, Gründer-Story)
+- `src/proxy.ts` teilt Besucher von `/` 50/50 zu und merkt sich die Variante 30 Tage im Cookie `buky-variant`. Die URL bleibt `/`.
+- Variante gezielt anschauen: `/?variante=a` oder `/?variante=b` (setzt das Cookie neu)
+- Jedes PostHog-Event hat die Eigenschaft `variant`, jede Anmeldung in Supabase die Spalte `variant`
+  (`supabase/migrations/0003_waitlist_variant.sql`).
+
+Auswertung in Supabase:
+
+```sql
+select variant, count(*) as anmeldungen, count(confirmed_at) as bestaetigt
+from waitlist where interest = 'abo' group by variant;
+```
+
 ## Bilder
 
 Die Collage nutzt vorerst illustrierte Platzhalter (`src/components/BookArt.tsx`). Echte Fotos kommen nach `public/images/` und werden mit `next/image` eingebunden.
