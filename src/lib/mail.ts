@@ -2,6 +2,13 @@ import { Resend } from "resend";
 
 type Interest = "abo" | "gutschein";
 
+// Gleicher Text wie die Gründer-Story auf der Website (src/components/VariantB.tsx)
+const FOUNDER_STORY = [
+  "Abends auf dem Sofa, meine Tochter neben mir, ein Buch auf den Knien – das ist einer meiner liebsten Momente des Tages. Ich liebe es, mit ihr Bücher anzuschauen. Auch wenn wir das gleiche Buch gerade zum 40. Mal aufschlagen und ich jede Seite auswendig kenne. 😄",
+  "Und trotzdem frage ich mich manchmal: Was wäre, wenn wir immer wieder neue Bücher hätten? Neue Bilder zum Entdecken, neue Wörter, neue Geschichten – statt zum x-ten Mal dieselbe zu erzählen.",
+  "Genau so eine Lösung hätten wir uns gewünscht. Darum habe ich Buky gestartet.",
+];
+
 const COPY: Record<Interest, { button: string; teaser: string[] }> = {
   abo: {
     button: "E-Mail bestätigen",
@@ -37,6 +44,10 @@ function html(confirmUrl: string, interest: Interest) {
     <ul style="margin:0 0 24px;padding-left:20px">
       ${teaser.map((t) => `<li style="margin:0 0 10px">${t}</li>`).join("")}
     </ul>
+    <div style="margin:0 0 28px;padding:20px 22px;background:#fdf3c4;border-radius:18px">
+      <p style="font-family:Georgia,serif;font-size:20px;font-weight:bold;margin:0 0 12px">Hi, ich bin Roman 👋</p>
+      ${FOUNDER_STORY.map((t) => `<p style="margin:0 0 10px">${t}</p>`).join("")}
+    </div>
     <p style="margin:0 0 4px">Bis bald und viel Spass beim (Vor-)Lesen!</p>
     <p style="margin:0">Roman<br><span style="color:#6f6886">Familienvater &amp; Gründer von Buky</span></p>
   </div>`;
@@ -56,6 +67,8 @@ function text(confirmUrl: string, interest: Interest) {
     "Was dich danach erwartet:",
     ...teaser.map((t) => `- ${t.replace(/<\/?b>/g, "")}`),
     "",
+    "Hi, ich bin Roman 👋",
+    ...FOUNDER_STORY.flatMap((t) => [t, ""]),
     "Bis bald!",
     "Roman, Familienvater & Gründer von Buky",
   ].join("\n");
