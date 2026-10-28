@@ -70,17 +70,17 @@ export function Special() {
             <Blob className="absolute -top-2 -right-10 w-48 text-[#9d78ff]" />
             <Sticker>
               <span className="text-4xl" aria-hidden>
-                🧸
+                🌍
               </span>
             </Sticker>
             <h3 className="mt-8 font-serif text-4xl leading-tight font-semibold">
-              <em>Gebrauchsspuren</em>
+              <em>Bücher,</em>
               <br />
-              inklusive
+              die weiterreisen
             </h3>
             <p className="mt-5 text-lg text-ink/75">
-              Angeknabbert, zerknickt, bekritzelt? Kinderbücher sehen schnell nicht mehr wie neu aus – das decken wir ab.
-              Dein Kind darf mit den Büchern umgehen, als wären es seine eigenen.
+              Jedes Buch erfreut viele Familien. Das spart Ressourcen und Geld – und dir und deinem Kind bringt es stets
+              neue Geschichten.
             </p>
           </article>
 
