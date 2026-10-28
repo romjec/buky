@@ -34,7 +34,7 @@ export function HeroB() {
           </p>
           <SignupForm source="hero" buttonLabel="Neue Bücher für mein Kind" className="mt-8 max-w-xl" />
           <ul className="mt-6 flex flex-col gap-2 text-ink/80 sm:flex-row sm:flex-wrap sm:gap-x-6">
-            {["Gebraucht statt neu – spart Geld & Ressourcen", "Rücksende-Etikette liegt bei", "Passend zum Alter"].map((t) => (
+            {["Bücher, die weiterreisen – gut für die Umwelt", "Rücksende-Etikette liegt bei", "Passend zum Alter"].map((t) => (
               <li key={t} className="flex items-center gap-2">
                 <Check className="text-violet" /> {t}
               </li>
